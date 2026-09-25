@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://digihawke.com/sitemap-index.xml

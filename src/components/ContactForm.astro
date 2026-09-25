@@ -1,0 +1,256 @@
+---
+// ContactForm.astro
+---
+
+<form id="contact-form" class="flex flex-col gap-6" novalidate aria-label="Book a Growth Audit Consultation">
+  <!-- Name Input -->
+  <div class="flex flex-col gap-2">
+    <label for="contact-name" class="text-xs font-display font-bold tracking-wider text-white uppercase">
+      Full Name <span class="text-secondary" aria-hidden="true">*</span>
+    </label>
+    <input 
+      type="text" 
+      name="name" 
+      id="contact-name" 
+      placeholder="e.g. John Doe…" 
+      required
+      autocomplete="name"
+      class="w-full bg-[#020617] border border-outline-variant rounded-[4px] px-4 py-3 text-sm text-white placeholder-on-surface-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-all duration-200"
+    />
+    <p id="error-name" class="hidden text-xs text-brand-red font-semibold mt-1" role="alert"></p>
+  </div>
+
+  <!-- Email Input -->
+  <div class="flex flex-col gap-2">
+    <label for="contact-email" class="text-xs font-display font-bold tracking-wider text-white uppercase">
+      Work Email <span class="text-secondary" aria-hidden="true">*</span>
+    </label>
+    <input 
+      type="email" 
+      name="email" 
+      id="contact-email" 
+      placeholder="e.g. john@company.com…" 
+      required
+      autocomplete="email"
+      spellcheck="false"
+      class="w-full bg-[#020617] border border-outline-variant rounded-[4px] px-4 py-3 text-sm text-white placeholder-on-surface-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-all duration-200"
+    />
+    <p id="error-email" class="hidden text-xs text-brand-red font-semibold mt-1" role="alert"></p>
+  </div>
+
+  <!-- Phone Input -->
+  <div class="flex flex-col gap-2">
+    <label for="contact-phone" class="text-xs font-display font-bold tracking-wider text-white uppercase">
+      Phone Number <span class="text-on-surface-variant text-[10px] lowercase">(optional)</span>
+    </label>
+    <input 
+      type="tel" 
+      name="phone" 
+      id="contact-phone" 
+      placeholder="e.g. +91 81788-14381…" 
+      autocomplete="tel"
+      inputmode="tel"
+      class="w-full bg-[#020617] border border-outline-variant rounded-[4px] px-4 py-3 text-sm text-white placeholder-on-surface-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-all duration-200"
+    />
+    <p id="error-phone" class="hidden text-xs text-brand-red font-semibold mt-1" role="alert"></p>
+  </div>
+
+  <!-- Company Website Input -->
+  <div class="flex flex-col gap-2">
+    <label for="contact-website" class="text-xs font-display font-bold tracking-wider text-white uppercase">
+      Company Website <span class="text-secondary" aria-hidden="true">*</span>
+    </label>
+    <input 
+      type="url" 
+      name="website" 
+      id="contact-website" 
+      placeholder="e.g. https://example.com…" 
+      required
+      autocomplete="url"
+      inputmode="url"
+      spellcheck="false"
+      class="w-full bg-[#020617] border border-outline-variant rounded-[4px] px-4 py-3 text-sm text-white placeholder-on-surface-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-all duration-200"
+    />
+    <p id="error-website" class="hidden text-xs text-brand-red font-semibold mt-1" role="alert"></p>
+  </div>
+
+  <!-- Message / Business Challenges -->
+  <div class="flex flex-col gap-2">
+    <label for="contact-message" class="text-xs font-display font-bold tracking-wider text-white uppercase">
+      Describe Your Growth Targets <span class="text-secondary" aria-hidden="true">*</span>
+    </label>
+    <textarea 
+      name="message" 
+      id="contact-message" 
+      rows="4" 
+      placeholder="Tell us about your channels, monthly budget, and growth targets…" 
+      required
+      class="w-full bg-[#020617] border border-outline-variant rounded-[4px] px-4 py-3 text-sm text-white placeholder-on-surface-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-all duration-200"
+    ></textarea>
+    <p id="error-message" class="hidden text-xs text-brand-red font-semibold mt-1" role="alert"></p>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="mt-2">
+    <button 
+      type="submit" 
+      id="form-submit-btn" 
+      class="w-full py-3.5 bg-primary text-background font-display font-extrabold text-base rounded-[4px] glow-btn-primary cursor-pointer select-none transition-all flex items-center justify-center gap-2 focus-visible:outline-2 focus-visible:outline-secondary focus-visible:outline-offset-4"
+    >
+      <span id="btn-text">Submit Growth Audit Request</span>
+      <!-- Loading spinner SVG -->
+      <svg id="btn-spinner" class="hidden animate-spin h-5 w-5 text-background" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Success Announcement Toast -->
+  <div 
+    id="form-success-toast" 
+    class="hidden p-4 rounded-[4px] border border-secondary/20 bg-surface-container flex items-start gap-3 mt-4" 
+    aria-live="polite"
+  >
+    <svg class="w-6 h-6 text-secondary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <div class="flex flex-col gap-1">
+      <div class="text-sm font-display font-bold text-white">Consultation Request Received!</div>
+      <div class="text-xs text-on-surface-variant leading-relaxed">
+        Our strategy team is auditing your digital footprint. We will email you the custom growth audit outline within 24 hours.
+      </div>
+    </div>
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('form-submit-btn') as HTMLButtonElement;
+  const btnText = document.getElementById('btn-text');
+  const btnSpinner = document.getElementById('btn-spinner');
+  const successToast = document.getElementById('form-success-toast');
+
+  // Input Fields
+  const inputs = {
+    name: document.getElementById('contact-name') as HTMLInputElement,
+    email: document.getElementById('contact-email') as HTMLInputElement,
+    phone: document.getElementById('contact-phone') as HTMLInputElement,
+    website: document.getElementById('contact-website') as HTMLInputElement,
+    message: document.getElementById('contact-message') as HTMLTextAreaElement,
+  };
+
+  // Error Message Containers
+  const errors = {
+    name: document.getElementById('error-name'),
+    email: document.getElementById('error-email'),
+    phone: document.getElementById('error-phone'),
+    website: document.getElementById('error-website'),
+    message: document.getElementById('error-message'),
+  };
+
+  if (form && submitBtn && btnText && btnSpinner && successToast) {
+    
+    // Quick validation checker helper
+    const validateField = (key: keyof typeof inputs) => {
+      const field = inputs[key];
+      const errorContainer = errors[key];
+      if (!field || !errorContainer) return true;
+
+      let isValid = true;
+      let errorMsg = '';
+
+      if (field.hasAttribute('required') && !field.value.trim()) {
+        isValid = false;
+        errorMsg = 'This field is required.';
+      } else if (field.type === 'email' && field.value.trim()) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(field.value)) {
+          isValid = false;
+          errorMsg = 'Please enter a valid email address.';
+        }
+      } else if (field.type === 'url' && field.value.trim()) {
+        try {
+          // Quick URL validation
+          new URL(field.value);
+        } catch (_) {
+          isValid = false;
+          errorMsg = 'Please enter a valid URL (include https://).';
+        }
+      }
+
+      if (!isValid) {
+        errorContainer.textContent = errorMsg;
+        errorContainer.classList.remove('hidden');
+        field.classList.add('border-brand-red');
+        field.classList.remove('border-outline-variant');
+      } else {
+        errorContainer.classList.add('hidden');
+        field.classList.remove('border-brand-red');
+        field.classList.add('border-outline-variant');
+      }
+
+      return isValid;
+    };
+
+    // Attach real-time inline blur validators
+    Object.keys(inputs).forEach((key) => {
+      const fieldKey = key as keyof typeof inputs;
+      inputs[fieldKey]?.addEventListener('blur', () => validateField(fieldKey));
+      inputs[fieldKey]?.addEventListener('input', () => {
+        // Clear error styling on input
+        const errorContainer = errors[fieldKey];
+        if (errorContainer) errorContainer.classList.add('hidden');
+        inputs[fieldKey]?.classList.remove('border-brand-red');
+        inputs[fieldKey]?.classList.add('border-outline-variant');
+      });
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Check all validations on submit
+      let firstInvalidField: HTMLElement | null = null;
+      let formIsValid = true;
+
+      Object.keys(inputs).forEach((key) => {
+        const fieldKey = key as keyof typeof inputs;
+        const isFieldValid = validateField(fieldKey);
+        if (!isFieldValid) {
+          formIsValid = false;
+          if (!firstInvalidField) {
+            firstInvalidField = inputs[fieldKey];
+          }
+        }
+      });
+
+      // Accessibility: Focus the first field with validation error
+      if (!formIsValid) {
+        if (firstInvalidField) {
+          (firstInvalidField as HTMLElement).focus();
+        }
+        return;
+      }
+
+      // Proactive: Disable button and show spinner
+      submitBtn.setAttribute('disabled', 'true');
+      btnText.textContent = 'Submitting Audit Request…';
+      btnSpinner.classList.remove('hidden');
+      successToast.classList.add('hidden');
+
+      // Simulate network request delay
+      setTimeout(() => {
+        // Restore submit button state
+        submitBtn.removeAttribute('disabled');
+        btnText.textContent = 'Submit Growth Audit Request';
+        btnSpinner.classList.add('hidden');
+
+        // Render success notification
+        successToast.classList.remove('hidden');
+        
+        // Reset form inputs
+        form.reset();
+      }, 1500);
+    });
+  }
+</script>

@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout 
+  title="Book a Growth Audit | DigiHawke Media"
+  description="Contact DigiHawke Media. Submit your monthly ad budget and targets, and our growth engineers will perform a free SEO and conversion audit on your digital presence."
+>
+  <!-- Contact Header -->
+  <section class="pt-12 pb-10 md:pt-16 md:pb-12 bg-gradient-to-b from-surface-container-lowest to-background relative overflow-hidden select-none" aria-label="Contact Header">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--color-surface-container-low),_transparent_70%)] pointer-events-none"></div>
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-16 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-secondary/20 bg-secondary/5 mb-6">
+        <span class="text-[10px] font-display font-extrabold tracking-wider text-secondary uppercase">Strategy Bookings Open</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight mb-6 text-glow-indigo text-pretty">
+        Secure Your Growth Roadmap
+      </h1>
+      <p class="text-base md:text-lg text-on-surface-variant font-sans max-w-2xl mx-auto leading-relaxed">
+        Let us audit your crawl structures, inspect your conversion layout, and identify low-hanging revenue capture opportunities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Contact Content Section -->
+  <section class="py-12 bg-background relative z-10" aria-label="Growth Consultation Request">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-16 mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Side: Office & Communication Info (4 columns) -->
+        <div class="lg:col-span-5 text-left flex flex-col gap-8 select-none">
+          <div>
+            <h2 class="text-xs font-display font-bold tracking-widest text-secondary uppercase mb-3">
+              Direct Communication
+            </h2>
+            <p class="text-2xl font-display font-bold text-white mb-4">
+              Get in Touch Directly
+            </p>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              If you prefer direct emails or phone consultations, reach out to our team at any time. We operate on a 24-hour turnaround policy.
+            </p>
+          </div>
+
+          <!-- Contact items list -->
+          <div class="flex flex-col gap-4">
+            
+            <!-- Email -->
+            <div class="flex items-start gap-4 p-4 rounded-[4px] bg-surface-container-low border border-outline-variant/60">
+              <div class="w-10 h-10 rounded-[4px] bg-surface-container flex items-center justify-center text-secondary border border-outline-variant flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <span class="text-[10px] text-on-surface-variant uppercase font-semibold block tracking-wider">Strategy Inquiries</span>
+                <a href="mailto:help@digihawke.com" class="text-sm font-semibold text-white hover:text-secondary transition-colors focus-visible:outline-2 focus-visible:outline-secondary">
+                  help@digihawke.com
+                </a>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex items-start gap-4 p-4 rounded-[4px] bg-surface-container-low border border-outline-variant/60">
+              <div class="w-10 h-10 rounded-[4px] bg-surface-container flex items-center justify-center text-secondary border border-outline-variant flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div>
+                <span class="text-[10px] text-on-surface-variant uppercase font-semibold block tracking-wider">Ad-Budget Consultations</span>
+                <a href="tel:+918178814381" class="text-sm font-semibold text-white hover:text-secondary transition-colors focus-visible:outline-2 focus-visible:outline-secondary">
+                  +91 81788 14381
+                </a>
+              </div>
+            </div>
+
+            <!-- HQ Location -->
+            <div class="flex items-start gap-4 p-4 rounded-[4px] bg-surface-container-low border border-outline-variant/60">
+              <div class="w-10 h-10 rounded-[4px] bg-surface-container flex items-center justify-center text-secondary border border-outline-variant flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <span class="text-[10px] text-on-surface-variant uppercase font-semibold block tracking-wider">Strategy Command Center</span>
+                <span class="text-sm font-semibold text-white">
+                  Barhaj, Dist - Deoria , Gorakhpur. U.P - 274601
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Side: Contact Form Card (7 columns) -->
+        <div class="lg:col-span-7">
+          <div class="rounded-[8px] glass-panel p-6 md:p-8 shadow-xl">
+            <h2 class="text-lg font-display font-bold text-white mb-6 border-b border-outline-variant/30 pb-4">
+              Submit Growth Audit Application
+            </h2>
+            <ContactForm />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>

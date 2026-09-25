@@ -1,0 +1,48 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  details: string;
+  progressPercent?: number; // Optional progress percentage to render
+}
+
+const { value, label, details, progressPercent = 100 } = Astro.props;
+---
+
+<article 
+  class="rounded-[8px] p-6 bg-gradient-to-br from-surface-container to-surface-container-low border border-outline-variant hover:border-secondary/20 transition-all duration-300 flex flex-col justify-between h-full select-none"
+  style="box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);"
+>
+  <div>
+    <!-- Metric Headline (Tabular Figures) -->
+    <div class="text-4xl md:text-5xl font-display font-extrabold text-secondary tracking-tight mb-2 text-glow-cyan font-mono tabular-nums">
+      {value}
+    </div>
+    
+    <!-- Metric Label & Sub-Detail -->
+    <h3 class="text-base font-display font-bold text-white mb-2 leading-snug">
+      {label}
+    </h3>
+    <p class="text-xs text-on-surface-variant font-sans leading-relaxed mb-6">
+      {details}
+    </p>
+  </div>
+
+  <!-- Progress Indicator (Velocity Symbolism) -->
+  <div class="w-full">
+    <div class="flex items-center justify-between text-[10px] text-on-surface-variant font-semibold tracking-wider uppercase mb-1.5">
+      <span>Performance Indicator</span>
+      <span>{progressPercent}%</span>
+    </div>
+    <div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+      <div 
+        class="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
+        style={`width: ${progressPercent}%;`}
+        role="progressbar"
+        aria-valuenow={progressPercent}
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+  </div>
+</article>

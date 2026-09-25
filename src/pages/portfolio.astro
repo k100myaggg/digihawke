@@ -1,0 +1,436 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const caseStudies = [
+  {
+    id: 'case-meta-lucknow-fashion',
+    title: 'High-Volume Meta Ads Scaling for Lucknow Fashion Brand',
+    client: 'Lucknow Fashion Brand',
+    category: 'ads',
+    categoryLabel: 'Paid PPC & Social',
+    metric: '9-10x',
+    metricLabel: 'Return on Ad Spend (ROAS)',
+    challenge: 'A Lucknow-based fashion brand needed to scale their e-commerce sales channel efficiently through Meta Ads while maintaining a healthy cost-per-purchase (CPP) and high return on spend.',
+    strategy: 'Structured high-intent top-of-funnel (TOF) testing campaigns targeting specific products (e.g., Zora Kurta), coupled with middle/bottom-of-funnel catalog sales. Implemented aggressive bidding strategies and optimized conversion tracking.',
+    result: 'Generated 176 website purchases with ₹2.79L+ ad spend, achieving a best CPP of ₹654.92, 1,410 add-to-carts, and 56K+ link clicks through Meta Ads.',
+    images: ['/images/case-studies/meta-lucknow-fashion.png']
+  },
+  {
+    id: 'case-meta-spoken-english',
+    title: 'High-Volume Lead & Conversion Campaign for Spoken English Brand',
+    client: 'Spoken English Brand',
+    category: 'ads',
+    categoryLabel: 'Paid PPC & Social',
+    metric: '20,826',
+    metricLabel: 'Website Leads Generated',
+    challenge: 'An online education and spoken English brand wanted to acquire qualified website leads cost-effectively while driving sales for their ₹2,999 course and growing their WhatsApp community.',
+    strategy: 'Deployed high-performance Meta lead-tracker campaigns with custom audience splits. Retargeted interested leads through direct-to-WhatsApp community onboarding loops.',
+    result: 'Generated 20,826 website leads at an average CPL of ₹6.82 with ₹1.42L ad spend, along with 58.6K+ link clicks, 47.3K+ landing page views, 190 direct course sales (at ₹2,999 each), and over 18,500 WhatsApp community joins.',
+    images: ['/images/case-studies/meta-spoken-english.png']
+  },
+  {
+    id: 'case-google-ads-sales',
+    title: 'Google Ads Launch for $69 Premium Product',
+    client: 'Printolized E-Commerce',
+    category: 'ads',
+    categoryLabel: 'Paid PPC & Social',
+    metric: '3.6x',
+    metricLabel: 'Estimated ROAS',
+    challenge: 'Launching a new high-ticket ($69) product internationally using Google Ads with a limited initial budget, requiring rapid search performance and positive cashflow.',
+    strategy: 'Configured highly optimized search and shopping campaigns focused on high-intent transactional search queries. Monitored impression share and click-through rates (CTR) to refine landing page conversion signals.',
+    result: 'Generated 17 conversions/sales with RM 1.37K spend, driving 494 highly qualified clicks and 3.47K impressions.',
+    images: ['/images/case-studies/google-ads-sales.png']
+  },
+  {
+    id: 'case-twos-square-leadgen',
+    title: '360-Degree Digital Marketing for Jewelry & Fashion Agency Client',
+    client: 'Twos Square Brandings',
+    category: 'ads',
+    categoryLabel: 'Paid PPC & Social',
+    metric: '44',
+    metricLabel: 'Appointments Booked',
+    challenge: 'Twos Square Brandings needed to acquire local jewelry and fashion brands for their premium 360-degree digital marketing services, requiring a high-quality lead generation funnel.',
+    strategy: 'Deployed targeted Facebook lead generation and appointment booking campaigns with custom local targeting, routing prospects through a pre-qualification GoHighLevel CRM funnel.',
+    result: 'Acquired 44 booked appointments from a ₹16,078.86 ad spend, achieving a ₹365 Cost-Per-Lead (CPL) and closing 4 high-value clients (₹40K+ per client ticket size with monthly recurring retainers).',
+    images: ['/images/case-studies/twos-square-meta-ads.png', '/images/case-studies/twos-square-crm.png']
+  },
+  {
+    id: 'case-saas-webdev-leadgen',
+    title: 'SaaS & Web Development Appointment Generation Funnel',
+    client: 'Web & SaaS Solutions Client',
+    category: 'dev',
+    categoryLabel: 'Web Dev & Speed',
+    metric: '297',
+    metricLabel: 'Schedules Booked',
+    challenge: 'A SaaS and web development service provider struggled to get consistent inbound consulting inquiries and proposals from qualified business prospects.',
+    strategy: 'Built targeted conversion campaigns optimizing for "Website Schedule" results across multi-adset groups (including interest-based and ADV+ audience segments).',
+    result: 'Generated 297 website schedules with ₹161,702.52 total spent, achieving a highly efficient CPL of ₹544.45 per schedule and resulting in multiple proposals sent and successfully closed contracts.',
+    images: ['/images/case-studies/saas-webdev-meta-ads.png']
+  },
+  {
+    id: 'case-seo-clothing-brand',
+    title: 'Top #5 Google Rankings for WooCommerce E-Commerce Store',
+    client: 'WooCommerce Clothing Brand',
+    category: 'seo',
+    categoryLabel: 'SEO & Content',
+    metric: 'Top #5',
+    metricLabel: 'Google USA Ranking',
+    challenge: 'Establishing search engine visibility for a boutique WooCommerce clothing brand in the highly competitive United States market without massive ad spend.',
+    strategy: 'Spent 3 years implementing technical site audits, semantic category architectures, product description schema optimization, and long-tail commercial term indexing.',
+    result: 'Successfully ranked multiple product and collection pages on Google\'s 1st page under the Top #5 Positions in the USA market, establishing a massive organic pipeline.',
+    images: []
+  },
+  {
+    id: 'case-seo-blog-pageviews',
+    title: '1K+ Daily Visitors & Top 3 Positions for Content Website',
+    client: 'Independent Content Blog',
+    category: 'seo',
+    categoryLabel: 'SEO & Content',
+    metric: '1K+',
+    metricLabel: 'Daily Pageviews',
+    challenge: 'Scaling search traffic and user engagement on a content-heavy blog website to secure steady ad/affiliate monetization.',
+    strategy: 'Targeted keyword research with low keyword difficulty (KD) and high search volume. Optimized content nodes for readability and technical speed.',
+    result: 'Consistently ranked multiple articles in Google\'s Top 3 Positions, achieving 400-500 daily pageviews and successfully crossing 1,000+ daily organic visitors.',
+    images: ['/images/case-studies/seo-blog-console-1.png', '/images/case-studies/seo-blog-console-2.png']
+  }
+];
+
+const videoProjects = [
+  {
+    mediaId: '15x9p76m4w',
+    title: 'Ad Hook: Brand Promotional Creative',
+    category: 'video'
+  },
+  {
+    mediaId: 'eopdmxbzs4',
+    title: 'Social Retention: Short-Form Engagement',
+    category: 'video'
+  },
+  {
+    mediaId: 'yl2wlfd7qt',
+    title: 'Visual Pace: High-Impact Commercial Edit',
+    category: 'video'
+  }
+];
+---
+
+<Layout 
+  title="Case Studies & Marketing Results | DigiHawke Media"
+  description="Explore our proven digital marketing results. Discover how we drive search revenue, reduce customer acquisition cost, and build fast marketing pipelines."
+>
+  <!-- Portfolio Header -->
+  <section class="pt-12 pb-12 md:pt-16 md:pb-16 bg-gradient-to-b from-surface-container-lowest to-background relative overflow-hidden select-none" aria-label="Portfolio Header">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--color-surface-container-low),_transparent_70%)] pointer-events-none"></div>
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-16 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-secondary/20 bg-secondary/5 mb-6">
+        <span class="text-[10px] font-display font-extrabold tracking-wider text-secondary uppercase">Verified Revenue Outcomes</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight mb-6 text-glow-indigo text-pretty">
+        Proven Scaling Outcomes
+      </h1>
+      <p class="text-base md:text-lg text-on-surface-variant font-sans max-w-2xl mx-auto leading-relaxed">
+        We hold ourselves accountable to bottom-line results. Read how we optimized conversion funnels and search indexing to scale these digital brands.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter & Portfolio Case Grid -->
+  <section class="py-16 bg-background relative z-10" aria-label="Client Case Studies">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-16">
+      
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap justify-center gap-3 mb-16 select-none" role="tablist" aria-label="Filter Case Studies">
+        <button 
+          id="tab-all"
+          role="tab"
+          aria-selected="true"
+          aria-controls="case-grid"
+          class="px-5 py-2.5 bg-secondary text-background font-display font-extrabold text-xs uppercase tracking-wider rounded-[4px] cursor-pointer transition-all border border-secondary focus-visible:outline-2 focus-visible:outline-secondary"
+        >
+          All Projects
+        </button>
+        <button 
+          id="tab-seo"
+          role="tab"
+          aria-selected="false"
+          aria-controls="case-grid"
+          class="px-5 py-2.5 bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-white font-display font-extrabold text-xs uppercase tracking-wider rounded-[4px] cursor-pointer transition-all focus-visible:outline-2 focus-visible:outline-secondary"
+        >
+          SEO & Content
+        </button>
+        <button 
+          id="tab-ads"
+          role="tab"
+          aria-selected="false"
+          aria-controls="case-grid"
+          class="px-5 py-2.5 bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-white font-display font-extrabold text-xs uppercase tracking-wider rounded-[4px] cursor-pointer transition-all focus-visible:outline-2 focus-visible:outline-secondary"
+        >
+          Paid PPC & Social
+        </button>
+        <button 
+          id="tab-dev"
+          role="tab"
+          aria-selected="false"
+          aria-controls="case-grid"
+          class="px-5 py-2.5 bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-white font-display font-extrabold text-xs uppercase tracking-wider rounded-[4px] cursor-pointer transition-all focus-visible:outline-2 focus-visible:outline-secondary"
+        >
+          Web Dev & Speed
+        </button>
+        <button 
+          id="tab-video"
+          role="tab"
+          aria-selected="false"
+          aria-controls="video-grid"
+          class="px-5 py-2.5 bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-white font-display font-extrabold text-xs uppercase tracking-wider rounded-[4px] cursor-pointer transition-all focus-visible:outline-2 focus-visible:outline-secondary"
+        >
+          Video Editing
+        </button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div id="case-grid" class="grid grid-cols-1 gap-12" role="region" aria-live="polite">
+        {caseStudies.map((study) => (
+          <article 
+            id={study.id}
+            data-category={study.category}
+            class="case-card rounded-[8px] p-8 md:p-12 bg-gradient-to-br from-surface-container to-surface-container-low border border-outline-variant hover:border-secondary/20 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+            style="box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);"
+          >
+            <!-- Left Side: Metric Highlight (Lg Screen Column Span 3) -->
+            <div class="lg:col-span-3 flex flex-col items-start lg:border-r lg:border-outline-variant/30 lg:pr-8">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-display font-extrabold tracking-wider bg-secondary/10 text-secondary uppercase mb-4">
+                {study.categoryLabel}
+              </span>
+              <div class="text-5xl md:text-6xl font-display font-extrabold text-secondary tracking-tight mb-2 text-glow-cyan font-mono tabular-nums">
+                {study.metric}
+              </div>
+              <h2 class="text-sm font-display font-bold text-white uppercase tracking-wider mb-2">
+                {study.metricLabel}
+              </h2>
+              <span class="text-xs text-on-surface-variant font-semibold">
+                Client Partner: <span class="text-white">{study.client}</span>
+              </span>
+            </div>
+
+            <!-- Middle Side: Strategy Details (Lg Screen Column Span depends on whether images exist) -->
+            <div class={study.images && study.images.length > 0 ? "lg:col-span-5 flex flex-col text-left" : "lg:col-span-9 flex flex-col text-left"}>
+              <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-4 leading-snug">
+                {study.title}
+              </h3>
+              
+              <div class="flex flex-col gap-4 text-sm text-on-surface-variant font-sans leading-relaxed">
+                <div>
+                  <strong class="text-white block mb-1 font-semibold">The Challenge:</strong>
+                  {study.challenge}
+                </div>
+                <div>
+                  <strong class="text-white block mb-1 font-semibold">The Strategy:</strong>
+                  {study.strategy}
+                </div>
+                <div class="p-4 rounded-[4px] bg-background border border-outline-variant">
+                  <strong class="text-secondary block mb-1 font-bold">The Result:</strong>
+                  {study.result}
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Screenshots (Lg Screen Column Span 4) -->
+            {study.images && study.images.length > 0 && (
+              <div class="lg:col-span-4 flex flex-col gap-3">
+                <span class="text-xs font-display font-bold text-white/85 uppercase tracking-widest mb-1 block">
+                  Campaign Evidence
+                </span>
+                <div class={`grid ${study.images.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} gap-2`}>
+                  {study.images.map((img, idx) => (
+                    <div class="relative group cursor-zoom-in overflow-hidden rounded-[4px] border border-outline-variant/50 hover:border-secondary/50 transition-all duration-300">
+                      <img 
+                        src={img} 
+                        alt={`${study.title} screenshot evidence ${idx + 1}`}
+                        class="w-full h-auto object-cover max-h-[160px] group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        data-zoom-src={img}
+                      />
+                      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secondary animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                        </svg>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+
+      <!-- Videos Grid (Shown for 'all' and 'video' categories) -->
+      <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16" role="region" aria-label="Video Editing Showcase">
+        {videoProjects.map((video) => (
+          <div 
+            class="video-card rounded-[8px] overflow-hidden bg-gradient-to-br from-surface-container to-surface-container-low border border-outline-variant hover:border-secondary/20 transition-all duration-300 p-2 shadow-lg hover:scale-[1.02] flex flex-col justify-between"
+            data-category={video.category}
+            style="box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);"
+          >
+            <div class="relative overflow-hidden rounded-[6px] w-full" style="aspect-ratio: 9/16;">
+              <script src="https://fast.wistia.com/player.js" async></script>
+              <script src={`https://fast.wistia.com/embed/${video.mediaId}.js`} async type="module"></script>
+              <style is:inline set:html={`
+                wistia-player[media-id='${video.mediaId}']:not(:defined) {
+                  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${video.mediaId}/swatch');
+                  display: block;
+                  filter: blur(5px);
+                  padding-top:177.78%;
+                }
+              `}></style>
+              <wistia-player media-id={video.mediaId} aspect="0.5625"></wistia-player>
+            </div>
+            <div class="p-3 text-left">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-display font-extrabold tracking-wider bg-secondary/10 text-secondary uppercase mb-2">
+                Video Edit
+              </span>
+              <h4 class="text-xs font-display font-bold text-white tracking-wide">{video.title}</h4>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden bg-background/95 backdrop-blur-md items-center justify-center p-4 cursor-zoom-out select-none" aria-hidden="true" role="dialog">
+    <div class="relative w-[70vw] h-[70vh] flex flex-col items-center justify-center">
+      <button 
+        id="lightbox-close" 
+        class="absolute -top-12 right-0 text-white hover:text-secondary p-2 transition-colors cursor-pointer focus:outline-none"
+        aria-label="Close lightbox"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <img 
+        id="lightbox-img" 
+        src="" 
+        alt="Expanded proof screenshot"
+        class="w-full h-full object-contain rounded-[4px] border border-outline-variant/60 shadow-2xl"
+      />
+      <p id="lightbox-caption" class="text-on-surface-variant font-sans text-xs mt-4 text-center max-w-xl px-4 absolute -bottom-10"></p>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const tabs = {
+    all: document.getElementById('tab-all'),
+    seo: document.getElementById('tab-seo'),
+    ads: document.getElementById('tab-ads'),
+    dev: document.getElementById('tab-dev'),
+    video: document.getElementById('tab-video'),
+  };
+
+  const caseGrid = document.getElementById('case-grid');
+  const videoGrid = document.getElementById('video-grid');
+  const cards = document.querySelectorAll('.case-card');
+  const videoCards = document.querySelectorAll('.video-card');
+
+  const filterCategory = (activeKey: keyof typeof tabs) => {
+    // Update active tab buttons style
+    Object.keys(tabs).forEach((key) => {
+      const tabKey = key as keyof typeof tabs;
+      const tabBtn = tabs[tabKey];
+      if (!tabBtn) return;
+
+      if (tabKey === activeKey) {
+        tabBtn.setAttribute('aria-selected', 'true');
+        tabBtn.classList.remove('bg-surface-container', 'text-on-surface-variant', 'border-outline-variant');
+        tabBtn.classList.add('bg-secondary', 'text-background', 'border-secondary');
+      } else {
+        tabBtn.setAttribute('aria-selected', 'false');
+        tabBtn.classList.add('bg-surface-container', 'text-on-surface-variant', 'border-outline-variant');
+        tabBtn.classList.remove('bg-secondary', 'text-background', 'border-secondary');
+      }
+    });
+
+    // Hide / Show elements based on selection
+    if (activeKey === 'all') {
+      if (caseGrid) caseGrid.classList.remove('hidden');
+      if (videoGrid) videoGrid.classList.remove('hidden');
+      cards.forEach((card) => card.classList.remove('hidden'));
+      videoCards.forEach((card) => card.classList.remove('hidden'));
+    } else if (activeKey === 'video') {
+      if (caseGrid) caseGrid.classList.add('hidden');
+      if (videoGrid) videoGrid.classList.remove('hidden');
+      videoCards.forEach((card) => card.classList.remove('hidden'));
+    } else {
+      if (caseGrid) caseGrid.classList.remove('hidden');
+      if (videoGrid) videoGrid.classList.add('hidden');
+      cards.forEach((card) => {
+        const cardCategory = card.getAttribute('data-category');
+        if (cardCategory === activeKey) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+  };
+
+  // Attach tab click events
+  Object.keys(tabs).forEach((key) => {
+    const tabKey = key as keyof typeof tabs;
+    tabs[tabKey]?.addEventListener('click', () => filterCategory(tabKey));
+  });
+
+  // Lightbox functionality
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxClose = document.getElementById('lightbox-close');
+  const zoomImages = document.querySelectorAll('img[data-zoom-src]');
+
+  zoomImages.forEach((img) => {
+    img.addEventListener('click', (event) => {
+      const target = event.currentTarget as HTMLImageElement;
+      const zoomSrc = target.getAttribute('data-zoom-src');
+      const altText = target.getAttribute('alt') || 'Case Study Screenshot';
+      
+      if (zoomSrc && lightboxImg && lightbox) {
+        lightboxImg.src = zoomSrc;
+        lightboxImg.alt = altText;
+        
+        const caption = document.getElementById('lightbox-caption');
+        if (caption) {
+          caption.textContent = altText;
+        }
+
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // prevent scrolling
+      }
+    });
+  });
+
+  const closeLightbox = () => {
+    if (lightbox) {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  };
+
+  lightbox?.addEventListener('click', (event) => {
+    if (event.target === lightbox || event.target === lightboxClose || (event.target as HTMLElement).closest('#lightbox-close')) {
+      closeLightbox();
+    }
+  });
+
+  // Handle escape key
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+</script>

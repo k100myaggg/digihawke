@@ -1,0 +1,69 @@
+---
+interface Props {
+  showText?: boolean;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  class?: string;
+}
+
+const { showText = true, size = 'md', class: className = '' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'h-8 text-sm',
+  md: 'h-12 text-xl',
+  lg: 'h-16 text-2xl',
+  xl: 'h-24 text-4xl',
+};
+
+const iconSizes = {
+  sm: 'w-8 h-8',
+  md: 'w-12 h-12',
+  lg: 'w-16 h-16',
+  xl: 'w-24 h-24',
+};
+---
+
+<div class={`flex items-center gap-3 select-none ${className}`}>
+  <!-- Hawk Head SVG Icon -->
+  <svg 
+    class={`${iconSizes[size]} flex-shrink-0`}
+    viewBox="0 0 100 100" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <!-- Hawk Head base (Red) -->
+    <path 
+      d="M75,25 
+         C60,18 45,20 33,32 
+         C25,40 21,52 23,65 
+         C24,70 28,72 31,69 
+         C28,58 32,48 42,40 
+         C48,35 55,34 62,37 
+         C52,45 50,56 53,67 
+         C55,71 59,72 61,69 
+         C60,59 64,51 72,46 
+         C77,43 83,43 88,46 
+         C82,55 83,65 87,73 
+         C88,75 91,74 91,71 
+         C89,61 90,51 97,42 
+         C92,42 88,43 85,44 
+         C82,41 78,35 75,25 Z" 
+      fill="#E31E24"
+    />
+    <!-- Aggressive Hawk Eye Slit (White / Background Contrast) -->
+    <path 
+      d="M48,39 
+         C43,41 38,42 34,43 
+         C38,40 43,37 48,34 
+         C49,36 49,38 48,39 Z" 
+      fill="#FFFFFF"
+    />
+  </svg>
+
+  {showText && (
+    <div class={`flex flex-col leading-none font-display font-extrabold tracking-tight ${sizeClasses[size]}`}>
+      <span class="text-white">Digi</span>
+      <span class="text-brand-red">Hawke</span>
+    </div>
+  )}
+</div>
